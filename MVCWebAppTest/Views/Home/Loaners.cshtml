@@ -1,0 +1,24 @@
+@model MVCWebAppTest.Models.Person
+
+@{
+    ViewData["Title"] = "Loaners";
+}
+
+<h1>List of loaners</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Loaner</h1>
+    <hr />
+</div>
+<div>
+    <dl>
+        <dt>Loaner ID: @Model.ID</dt>
+        <dt>Full name: @Model.FirstName @Model.LastName</dt>
+        <dt>Email address: @Model.Email</dt>
+        <dt>Phone number: @Model.PhoneNum</dt>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {})
+    <a asp-action="Index">Back to List</a>
+</div>

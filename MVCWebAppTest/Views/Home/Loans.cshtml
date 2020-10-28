@@ -1,0 +1,25 @@
+@model MVCWebAppTest.Models.LoanEvent
+
+@{
+    ViewData["Title"] = "Loans";
+}
+
+<h1>List of loans</h1>
+
+<div class="text-center">
+    <h1 class="display-4">Loan</h1>
+    <hr />
+</div>
+<div>
+    <dl>
+        <dt>Loaner ID: @Model.LoanerID</dt>
+        <dt>Start date: @Model.LoanDate</dt>
+        <dt>End date: @Model.DueDate</dt>
+        <dt>Borrower name: @Model.BorrowerName</dt>
+        <dt>Return date: @Model.ReturnDate</dt>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {})
+    <a asp-action="Index">Back to List</a>
+</div>

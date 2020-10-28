@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-MVCWebAppTest-FD29FE4A-2D57-44B1-A636-9C879B059F2B</UserSecretsId>
+    <UserSecretsId>aspnet-MVCWebAppTest-7BCF2DEE-3335-4020-B9D4-2319B239D3E4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +11,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Loans\" />
   </ItemGroup>
 
 </Project>
