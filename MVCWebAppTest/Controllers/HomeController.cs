@@ -26,25 +26,6 @@ namespace MVCWebAppTest.Controllers
             return View();
         }
 
-        // Items page using Items.cshtml view
-        public IActionResult Items()
-        {
-            Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f);
-            return View(item);
-        }
-
-        public IActionResult Loans()
-        {
-            LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, DateTime.Now.AddDays(5));
-            return View(loan);
-        }
-
-        public IActionResult Loaners()
-        {
-            Person person = new Person(1, "Sam", "Fisher", "sam_fisher@gmail.com", "206-111-1111");
-            return View(person);
-        }
-
         public IActionResult Privacy()
         {
             return View();

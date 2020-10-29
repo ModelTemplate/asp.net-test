@@ -18,8 +18,8 @@ namespace MVCWebAppTest.Controllers
 
         public IActionResult Index()
         {
-            // Person person = new Person();
-            return View();
+            Person person = new Person(1, "Sam", "Fisher", "sam_fisher@gmail.com", "206-111-1111");
+            return View(person);
         }
     }
 }

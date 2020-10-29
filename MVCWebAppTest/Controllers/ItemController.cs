@@ -20,15 +20,13 @@ namespace MVCWebAppTest.Controllers
 
         }
 
-        // [HttpGet]
-        // public ActionResult Index()
-        // {
-        //     Item item = new Item();
-        //     item.Name = "Hammer";
-        //     item.Description = "My trusty hammer.";
-
-        //     return View(item);
-        // }
+        // Items page using Items.cshtml view
+        [HttpGet]
+        public IActionResult Items()
+        {
+            Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f);
+            return View(item);
+        }
 
         // GET: ItemController/Details/5
         // public ActionResult Details(int id)

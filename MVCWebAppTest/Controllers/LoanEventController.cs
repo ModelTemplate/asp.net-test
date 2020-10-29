@@ -18,8 +18,8 @@ namespace MVCWebAppTest.Controllers
 
         public IActionResult Index()
         {
-            // LoanEvent loan = new LoanEvent();
-            return View();
+            LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, DateTime.Now.AddDays(5));
+            return View(loan);
         }
     }
 }
