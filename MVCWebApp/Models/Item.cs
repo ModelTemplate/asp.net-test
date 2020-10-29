@@ -27,11 +27,11 @@ namespace MVCWebApp.Models
 
         public Item()
         {
-            ID = 0;
-            Name = "Placeholder name";
-            Description = "Placeholder description";
-            Cost = 0;
-            DepreciationRate = 0;
+            ID = -1;
+            Name = null;
+            Description = null;
+            Cost = -1;
+            DepreciationRate = -1;
         }
 
         public ICollection<Item> Items { get; set; }

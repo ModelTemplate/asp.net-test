@@ -15,7 +15,7 @@ namespace MVCWebApp.Models
         public string BorrowerName{ get; set; }
         public DateTime LoanDate { get; set; }
         public DateTime DueDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
 
         public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
             DateTime dueDate, DateTime returnDate)
@@ -35,7 +35,7 @@ namespace MVCWebApp.Models
             BorrowerName = "John Doe";
             LoanDate = new DateTime();
             DueDate = new DateTime();
-            ReturnDate = new DateTime();
+            ReturnDate = null;
         }
 
         public ICollection<LoanEvent> Loans { get; set; }
