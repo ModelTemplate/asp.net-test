@@ -19,7 +19,7 @@ namespace MVCWebAppTest.Controllers
         // Items page using Items.cshtml view
         public IActionResult Index()
         {
-            Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f);
+            Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f, 0);
             return View(item);
         }
 
