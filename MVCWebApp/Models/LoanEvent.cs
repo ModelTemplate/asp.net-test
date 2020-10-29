@@ -20,6 +20,18 @@ namespace MVCWebApp.Models
         public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
             DateTime dueDate, DateTime returnDate)
         {
+            if (dueDate.CompareTo(loanDate) <= 0)
+            {
+                throw new ArgumentException("Due date cannot be less than or equal to loan date.");
+            }
+            else if (returnDate.CompareTo(loanDate) <= 0)
+            {
+                throw new ArgumentException("Return date cannot be less than or equal to loan date.");
+            }
+            else if (loanDate.AddDays(3).CompareTo(dueDate) > 0)
+            {
+                throw new ArgumentException("Loan must be for at least three days.");
+            }
             ID = id;
             LoanerID = loanerId;
             BorrowerName = borrowerName;
