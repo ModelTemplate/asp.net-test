@@ -25,15 +25,16 @@ namespace MVCWebApp.Controllers
         }
 
         // GET: ItemController/Details/5
-        // public ActionResult Details(int id)
-        // {
-        //     return View();
-        // }
+        public ActionResult Details()
+        {
+            return View();
+        }
 
         // GET: ItemController/Create
         [HttpGet]
         public ActionResult Create()
         {
+
             return View();
         }
 

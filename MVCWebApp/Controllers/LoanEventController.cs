@@ -13,6 +13,7 @@ namespace MVCWebApp.Controllers
         {
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, DateTime.Now.AddDays(5), new DateTime());
@@ -20,6 +21,12 @@ namespace MVCWebApp.Controllers
         }
 
         public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Create()
         {
             return View();
         }

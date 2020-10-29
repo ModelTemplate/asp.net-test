@@ -13,6 +13,7 @@ namespace MVCWebApp.Controllers
         {
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             Person person = new Person(1, "Sam", "Fisher", "sam_fisher@gmail.com", "206-111-1111");
@@ -20,6 +21,12 @@ namespace MVCWebApp.Controllers
         }
 
         public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Create()
         {
             return View();
         }

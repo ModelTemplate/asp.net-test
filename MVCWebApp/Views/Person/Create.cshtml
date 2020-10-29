@@ -1,0 +1,36 @@
+﻿@model MVCWebApp.Models.Person
+
+@{ 
+    Layout = "_Layout";
+}
+
+<h1>New Loaner</h1>
+
+<fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.LabelFor(x => x.ID)
+            @Html.EditorFor(x => x.ID)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.FirstName)
+            @Html.EditorFor(x => x.FirstName)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.LastName)
+            @Html.EditorFor(x => x.LastName)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Email)
+            @Html.EditorFor(x => x.Email)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.PhoneNum)
+            @Html.EditorFor(x => x.PhoneNum)
+        </p>
+        <p>
+            <button type="submit">Add New Person</button>
+        </p>
+    }
+</fieldset>

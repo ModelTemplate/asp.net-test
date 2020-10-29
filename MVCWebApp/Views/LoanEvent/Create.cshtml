@@ -1,0 +1,40 @@
+﻿@model MVCWebApp.Models.LoanEvent
+
+@{ 
+    Layout = "_Layout";
+}
+
+<h1>New Loan</h1>
+
+<fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            @Html.LabelFor(x => x.ID)
+            @Html.EditorFor(x => x.ID)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.LoanerID)
+            @Html.EditorFor(x => x.LoanerID)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.BorrowerName)
+            @Html.EditorFor(x => x.BorrowerName)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.LoanDate)
+            @Html.EditorFor(x => x.LoanDate)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.DueDate)
+            @Html.EditorFor(x => x.DueDate)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.ReturnDate)
+            @Html.EditorFor(x => x.ReturnDate)
+        </p>
+        <p>
+            <button type="submit">Add New Loan</button>
+        </p>
+    }
+</fieldset>

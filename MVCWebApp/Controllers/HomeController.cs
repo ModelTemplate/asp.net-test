@@ -21,12 +21,14 @@ namespace MVCWebApp.Controllers
         }
 
         // Home page using Index.cshtml view under Home folder
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
         // Privacy page using Privacy.cshtml view under Home folder
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();
