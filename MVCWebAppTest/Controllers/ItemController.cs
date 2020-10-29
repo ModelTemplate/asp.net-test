@@ -17,7 +17,6 @@ namespace MVCWebAppTest.Controllers
         }
 
         // Items page using Items.cshtml view
-        [HttpGet]
         public IActionResult Index()
         {
             Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f);
