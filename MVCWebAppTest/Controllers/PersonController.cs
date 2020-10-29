@@ -7,9 +7,6 @@ using MVCWebAppTest.Models;
 
 namespace MVCWebAppTest.Controllers
 {
-    /// <summary>
-    /// Unused controller for Person model.
-    /// </summary>
     public class PersonController : Controller
     {
         public PersonController()

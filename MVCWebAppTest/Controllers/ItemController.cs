@@ -9,20 +9,16 @@ using MVCWebAppTest.Models;
 
 namespace MVCWebAppTest.Controllers
 {
-    /// <summary>
-    /// Unused controller for Item model.
-    /// </summary>
     public class ItemController : Controller
     {
         // GET: ItemController
         public ItemController()
         {
-
         }
 
         // Items page using Items.cshtml view
         [HttpGet]
-        public IActionResult Items()
+        public IActionResult Index()
         {
             Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f);
             return View(item);

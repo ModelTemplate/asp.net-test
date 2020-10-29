@@ -7,9 +7,6 @@ using MVCWebAppTest.Models;
 
 namespace MVCWebAppTest.Controllers
 {
-    /// <summary>
-    /// Unused controller for LoanEvent model.
-    /// </summary>
     public class LoanEventController : Controller
     {
         public LoanEventController()

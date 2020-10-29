@@ -20,12 +20,13 @@ namespace MVCWebAppTest.Controllers
             _appSettings = appSettings;     // unused for now
         }
 
-        // Home page using Index.cshtml view
+        // Home page using Index.cshtml view under Home folder
         public IActionResult Index()
         {
             return View();
         }
 
+        // Privacy page using Privacy.cshtml view under Home folder
         public IActionResult Privacy()
         {
             return View();
