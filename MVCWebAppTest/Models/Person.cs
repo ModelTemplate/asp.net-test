@@ -25,5 +25,6 @@ namespace MVCWebAppTest.Models
             Email = email;
             PhoneNum = phoneNum;
         }
+        public ICollection<Person> Persons { get; set; }
     }
 }

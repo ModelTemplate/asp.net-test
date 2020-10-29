@@ -25,5 +25,7 @@ namespace MVCWebAppTest.Models
             Cost = cost;
             DepreciationRate = depreciationRate;
         }
+
+        public ICollection<Item> Items { get; set; }
     }
 }

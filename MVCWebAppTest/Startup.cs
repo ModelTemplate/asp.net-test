@@ -37,6 +37,9 @@ namespace MVCWebAppTest
 
             // reading setting values from AppSettings.cs
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+            //var connection = "Server=localhost;Port=5432;Database=Test;User Id=postgres;Password=postgres;";
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

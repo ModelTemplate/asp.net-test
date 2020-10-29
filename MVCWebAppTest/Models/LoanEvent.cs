@@ -28,5 +28,7 @@ namespace MVCWebAppTest.Models
             DueDate = dueDate;
             ReturnDate = returnDate;
         }
+
+        public ICollection<LoanEvent> Loans { get; set; }
     }
 }
