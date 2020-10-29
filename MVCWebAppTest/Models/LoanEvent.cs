@@ -31,11 +31,11 @@ namespace MVCWebAppTest.Models
         public LoanEvent()
         {
             ID = -1;
-            LoanerID = 0;
+            LoanerID = -1;
             BorrowerName = "John Doe";
-            LoanDate = DateTime.Now;
-            DueDate = DateTime.Now;
-            ReturnDate = DateTime.Now;
+            LoanDate = new DateTime();
+            DueDate = new DateTime();
+            ReturnDate = new DateTime();
         }
 
         public ICollection<LoanEvent> Loans { get; set; }

@@ -27,9 +27,9 @@ namespace MVCWebAppTest.Models
 
         public Person()
         {
-            ID = 0;
-            FirstName = "Mary";
-            LastName = "Jane";
+            ID = -1;
+            FirstName = "John";
+            LastName = "Doe";
             Email = "example@email.com";
             PhoneNum = "999-999-999";
         }

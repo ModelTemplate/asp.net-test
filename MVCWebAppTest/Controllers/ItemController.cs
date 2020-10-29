@@ -51,15 +51,15 @@ namespace MVCWebAppTest.Controllers
         // }
 
         // GET: ItemController/Edit/5
-        // public ActionResult Edit(int id)
-        // {
-        //     return View();
-        // }
+        public ActionResult Edit()
+        {
+            return View();
+        }
 
         // GET: ItemController/Delete/5
-        // public ActionResult Delete()
-        // {
-        //     return View();
-        // }
+        public ActionResult Delete()
+        {
+            return View();
+        }
     }
 }

@@ -18,5 +18,10 @@ namespace MVCWebAppTest.Controllers
             LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, DateTime.Now.AddDays(5), new DateTime());
             return View(loan);
         }
+
+        public ActionResult Edit()
+        {
+            return View();
+        }
     }
 }
