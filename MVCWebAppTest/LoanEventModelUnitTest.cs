@@ -22,7 +22,7 @@ namespace MVCWebAppTest
         [Theory]
         [InlineData(0, 1, "Joe Smith", "2020-8-20", "2020-8-25", "2020-8-25")]
         [InlineData(1, 2, "Mary Jane", "2021-12-5", "2022-1-1", "2020-1-3")]
-        public void ParamTest(int id, int loanerId, string borrowerName, string loanDate,
+        public void AllParamTest(int id, int loanerId, string borrowerName, string loanDate,
             string dueDate, string returnDate)
         {
             LoanEvent loan = new LoanEvent(id, loanerId, borrowerName, DateTime.Parse(loanDate),

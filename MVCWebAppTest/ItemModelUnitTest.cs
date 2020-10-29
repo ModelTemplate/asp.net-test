@@ -20,7 +20,7 @@ namespace MVCWebAppTest
         [Theory]
         [InlineData(0, "Hammer", "My trusty hammer.", 15.99f, 0.5f)]
         [InlineData(1, "Frying Pan", "Copper non-stick pan.", 30.50f, 0.25f)]
-        public void ParamTest(int id, string name, string description, float cost, float depreciationRate)
+        public void AllParamTest(int id, string name, string description, float cost, float depreciationRate)
         {
             Item item = new Item(id, name, description, cost, depreciationRate);
             Assert.Equal(id, item.ID);

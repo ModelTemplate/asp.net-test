@@ -21,7 +21,7 @@ namespace MVCWebAppTest
         [InlineData(0, "Jack", "Sparrow", null, "206-000-000")]
         [InlineData(1, "Jane", "Austen", "janeAusten@gmail.com", null)]
         [InlineData(2, "Tom", "Clancy", "tomC@hotmail.com", "206-111-111")]
-        public void ParamTest(int id, string firstName, string lastName, string email, string phoneNum)
+        public void AllParamTest(int id, string firstName, string lastName, string email, string phoneNum)
         {
             Person person = new Person(id, firstName, lastName, email, phoneNum);
             Assert.Equal(id, person.ID);
