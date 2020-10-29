@@ -25,6 +25,16 @@ namespace MVCWebAppTest.Models
             Email = email;
             PhoneNum = phoneNum;
         }
+
+        public Person()
+        {
+            ID = 0;
+            FirstName = "Mary";
+            LastName = "Jane";
+            Email = "example@email.com";
+            PhoneNum = "999-999-999";
+        }
+
         public ICollection<Person> Persons { get; set; }
     }
 }

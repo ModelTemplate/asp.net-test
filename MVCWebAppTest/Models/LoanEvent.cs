@@ -29,6 +29,16 @@ namespace MVCWebAppTest.Models
             ReturnDate = returnDate;
         }
 
+        public LoanEvent()
+        {
+            ID = -1;
+            LoanerID = 0;
+            BorrowerName = "John Doe";
+            LoanDate = DateTime.Now;
+            DueDate = DateTime.Now;
+            ReturnDate = DateTime.Now;
+        }
+
         public ICollection<LoanEvent> Loans { get; set; }
     }
 }

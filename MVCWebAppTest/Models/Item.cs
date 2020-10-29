@@ -14,7 +14,7 @@ namespace MVCWebAppTest.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public float Cost { get; set; }
-        public float DepreciationRate { get; set; } = 0;
+        public float DepreciationRate { get; set; }
 
         public Item(int id = 0, string name = "Placeholder name", string description = "Placeholder description", 
                 float cost = 0, float depreciationRate = 0)
@@ -24,6 +24,15 @@ namespace MVCWebAppTest.Models
             Description = description;
             Cost = cost;
             DepreciationRate = depreciationRate;
+        }
+
+        public Item()
+        {
+            ID = 0;
+            Name = "Placeholder name";
+            Description = "Placeholder description";
+            Cost = 0;
+            DepreciationRate = 0;
         }
 
         public ICollection<Item> Items { get; set; }

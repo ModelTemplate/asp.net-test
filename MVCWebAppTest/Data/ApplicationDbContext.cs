@@ -9,6 +9,7 @@ namespace MVCWebAppTest.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        // https://medium.com/@daniel.sagita/using-database-in-asp-net-core-f69f99048bb
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
