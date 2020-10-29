@@ -16,8 +16,7 @@ namespace MVCWebAppTest.Models
         public string Email { get; set; }
         public string PhoneNum { get; set; }
 
-        public Person(int id = 0, string firstName = "Mary", string lastName = "Sue", 
-                string email = "example@email.com", string phoneNum = "999-999-999")
+        public Person(int id, string firstName, string lastName, string email, string phoneNum)
         {
             ID = id;
             FirstName = firstName;

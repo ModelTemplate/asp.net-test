@@ -17,9 +17,8 @@ namespace MVCWebAppTest.Models
         public DateTime DueDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
-        public LoanEvent(int id = -1, int loanerId = 0, string borrowerName = "John Doe", 
-                DateTime loanDate = new DateTime(), DateTime dueDate = new DateTime(), 
-                DateTime returnDate = new DateTime())
+        public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
+            DateTime dueDate, DateTime returnDate)
         {
             ID = id;
             LoanerID = loanerId;

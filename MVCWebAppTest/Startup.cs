@@ -39,8 +39,8 @@ namespace MVCWebAppTest
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             // https://www.connectionstrings.com/sql-server/
-            var connection = "Server=localhost;Database=myDataBase;User Id=myUsername;Password=myPassword;";
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+            // var connection = "Server=localhost;Database=myDataBase;User Id=myUsername;Password=myPassword;";
+            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

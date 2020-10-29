@@ -16,8 +16,7 @@ namespace MVCWebAppTest.Models
         public float Cost { get; set; }
         public float DepreciationRate { get; set; }
 
-        public Item(int id = 0, string name = "Placeholder name", string description = "Placeholder description", 
-                float cost = 0, float depreciationRate = 0)
+        public Item(int id, string name, string description, float cost, float depreciationRate)
         {
             ID = id;
             Name = name;
