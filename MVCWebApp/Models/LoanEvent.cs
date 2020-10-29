@@ -20,7 +20,14 @@ namespace MVCWebApp.Models
         public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
             DateTime dueDate, DateTime returnDate)
         {
-            if (dueDate.CompareTo(loanDate) <= 0)
+            if (id < 0 || loanerId < 0)
+            {
+                throw new ArgumentException("Id numbers cannot be a negative value.");
+            } else if (borrowerName == "")
+            {
+                throw new ArgumentException("Must put in borrower name.");
+            }
+            else if (dueDate.CompareTo(loanDate) <= 0)
             {
                 throw new ArgumentException("Due date cannot be less than or equal to loan date.");
             }

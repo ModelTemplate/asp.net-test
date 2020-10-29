@@ -18,6 +18,18 @@ namespace MVCWebApp.Models
 
         public Person(int id, string firstName, string lastName, string email, string phoneNum)
         {
+            if (id < 0)
+            {
+                throw new ArgumentException("Person Id cannot be a negative value.");
+            }
+            else if (firstName == "" || lastName == "")
+            {
+                throw new ArgumentException("Must input person first and last names.");
+            } 
+            else if (email == null || phoneNum == null)
+            {
+                throw new ArgumentException("Must input at least one form of contact information.");
+            }
             ID = id;
             FirstName = firstName;
             LastName = lastName;
