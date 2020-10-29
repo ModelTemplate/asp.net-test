@@ -17,6 +17,7 @@ namespace MVCWebApp.Controllers
         }
 
         // Items page using Items.cshtml view
+        [HttpGet]
         public IActionResult Index()
         {
             Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f, 0);
@@ -30,25 +31,26 @@ namespace MVCWebApp.Controllers
         // }
 
         // GET: ItemController/Create
-        // public ActionResult Create()
-        // {
-        //     return View();
-        // }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
 
         // POST: ItemController/Create
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public ActionResult Create(IFormCollection collection)
-        // {
-        //     try
-        //     {
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     catch
-        //     {
-        //         return View();
-        //     }
-        // }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
         // GET: ItemController/Edit/5
         public ActionResult Edit()
@@ -57,6 +59,7 @@ namespace MVCWebApp.Controllers
         }
 
         // GET: ItemController/Delete/5
+        [HttpDelete]
         public ActionResult Delete()
         {
             return View();
