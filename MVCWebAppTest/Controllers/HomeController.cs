@@ -5,10 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MVCWebAppTest.Models;
+using MVCWebApp.Models;
 using Microsoft.Extensions.Options;
 
-namespace MVCWebAppTest.Controllers
+namespace MVCWebApp.Controllers
 {
     public class HomeController : Controller
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MVCWebAppTest.Models;
+using MVCWebApp.Models;
 
-namespace MVCWebAppTest.Data
+namespace MVCWebApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -1,7 +1,7 @@
 /// <summary>
 /// Simple POCO for managing the application's settings.
 /// </summary>
-namespace MVCWebAppTest
+namespace MVCWebApp
 {
     public class AppSettings
     {

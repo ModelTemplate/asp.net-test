@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVCWebAppTest.Models
+namespace MVCWebApp.Models
 {
     /// <summary>
     /// Representing a person that uses loaning service to track loaned items.

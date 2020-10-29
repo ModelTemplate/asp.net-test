@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MVCWebAppTest.Data.Migrations
+namespace MVCWebApp.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-MVCWebAppTest-7BCF2DEE-3335-4020-B9D4-2319B239D3E4</UserSecretsId>
+    <UserSecretsId>aspnet-MVCWebApp-7BCF2DEE-3335-4020-B9D4-2319B239D3E4</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

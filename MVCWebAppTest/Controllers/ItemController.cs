@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MVCWebAppTest.Models;
+using MVCWebApp.Models;
 
-namespace MVCWebAppTest.Controllers
+namespace MVCWebApp.Controllers
 {
     public class ItemController : Controller
     {
