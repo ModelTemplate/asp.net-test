@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic.CompilerServices;
 using MVCWebApp.Data;
 using MVCWebApp.Models;
 
@@ -14,29 +15,41 @@ namespace MVCWebApp.Controllers
     {
         private ApplicationDbContext _dbContext;
 
-        // GET: ItemController
+        // GET: Item
         public ItemController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        // Items page using Items.cshtml view
+        // GET: Item
         [HttpGet]
         public IActionResult Index()
         {
-            Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f, 0);
-            List<Item> items = _dbContext.Items.ToList<Item>();
+            Item item = new Item()
+            {
+                ID = 0,
+                Name = "Hammer",
+                Description = "My trusty hammer.",
+                Cost = 9.99f,
+                DepreciationRate = 0
+            };
+
+            _dbContext.Add(item);   // adding item to database
+            _dbContext.SaveChanges();   // commiting changes
+            // List<Item> items = _dbContext.Items.ToList<Item>();
 
             return View(item);
         }
 
-        // GET: ItemController/Details/5
-        public ActionResult Details()
+        // GET: Item/Details/5
+        [HttpGet]
+        public ActionResult Details(int id)
         {
-            return View();
+            Item item = _dbContext.Find<Item>(id);
+            return View(item);
         }
 
-        // GET: ItemController/Create
+        // GET: Item/Create
         [HttpGet]
         public ActionResult Create()
         {
@@ -44,7 +57,7 @@ namespace MVCWebApp.Controllers
             return View();
         }
 
-        // POST: ItemController/Create
+        // POST: Item/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -59,14 +72,18 @@ namespace MVCWebApp.Controllers
             }
         }
 
-        // GET: ItemController/Edit/5
-        public ActionResult Edit()
+        // GET: Item/Edit/5
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
+            _dbContext.Find<Item>(id);
+            // _dbContext.Update<Item>(id);
+            _dbContext.SaveChanges();
             return View();
         }
 
         // GET: ItemController/Delete/5
-        [HttpDelete]
+        [HttpGet]
         public ActionResult Delete()
         {
             return View();
