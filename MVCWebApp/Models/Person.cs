@@ -15,6 +15,7 @@ namespace MVCWebApp.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNum { get; set; }
+        public ICollection<Person> Persons { get; set; }
 
         public Person(int id, string firstName, string lastName, string email, string phoneNum)
         {
@@ -45,7 +46,5 @@ namespace MVCWebApp.Models
             Email = "example@email.com";
             PhoneNum = "999-999-999";
         }
-
-        public ICollection<Person> Persons { get; set; }
     }
 }

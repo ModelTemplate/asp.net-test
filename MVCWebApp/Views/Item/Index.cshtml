@@ -33,15 +33,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Item item in Model) {
+        @foreach (var item in Model.Items) {
         <tr>
-            <td>@Html.DisplayFor(x => item.ID)</td>
-            <td>@Html.DisplayFor(x => item.Name)</td>
-            <td>@Html.DisplayFor(x => item.Description)</td>
-            <td>@Html.DisplayFor(x => item.Cost)</td>
-            <td>@Html.ActionLink("Add New Item Entry", "Create", new {})</td>
+            <td>@Html.DisplayFor(item => item.ID)</td>
+            <td>@Html.DisplayFor(item => item.Name)</td>
+            <td>@Html.DisplayFor(item => item.Description)</td>
+            <td>@Html.DisplayFor(item => item.Cost)</td>
             <td>@Html.ActionLink("Details", "Details", new { id=Model.ID })</td>
         </tr>
         }
     </tbody>
+    <tr>@Html.ActionLink("Add New Item Entry", "Create", new {})</tr>
 </table>

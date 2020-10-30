@@ -26,6 +26,7 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            // primer for database
             Item item = new Item()
             {
                 ID = 0,
@@ -37,9 +38,9 @@ namespace MVCWebApp.Controllers
 
             _dbContext.Add(item);   // adding item to database
             _dbContext.SaveChanges();   // commiting changes
-            // List<Item> items = _dbContext.Items.ToList<Item>();
+            // List<Item> Items = _dbContext.Items.ToList<Item>();
 
-            List<Item> Items = _dbContext.Items.ToList<Item>();
+            item.Items = _dbContext.Items.ToList<Item>();
 
             return View(item);
         }

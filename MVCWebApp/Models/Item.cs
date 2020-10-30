@@ -13,6 +13,7 @@ namespace MVCWebApp.Models
         public string Description { get; set; }
         public float Cost { get; set; }
         public float DepreciationRate { get; set; }
+        public ICollection<Item> Items { get; set; }
 
         public Item(int id, string name, string description, float cost, float depreciationRate)
         {
@@ -39,7 +40,5 @@ namespace MVCWebApp.Models
             Cost = -1;
             DepreciationRate = -1;
         }
-
-        public ICollection<Item> Items { get; set; }
     }
 }

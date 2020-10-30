@@ -16,6 +16,7 @@ namespace MVCWebApp.Models
         public DateTime LoanDate { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? ReturnDate { get; set; }
+        public ICollection<LoanEvent> Loans { get; set; }
 
         public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
             DateTime dueDate, DateTime returnDate)
@@ -56,7 +57,5 @@ namespace MVCWebApp.Models
             DueDate = new DateTime();
             ReturnDate = null;
         }
-
-        public ICollection<LoanEvent> Loans { get; set; }
     }
 }

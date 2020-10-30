@@ -28,6 +28,7 @@ namespace MVCWebApp.Controllers
                 Email = "sam_fisher@gmail.com",
                 PhoneNum = "206-111-1111"
             };
+
             _dbContext.Add(person);
             _dbContext.SaveChanges();
 
