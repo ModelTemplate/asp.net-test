@@ -22,6 +22,7 @@ namespace MVCWebApp.Controllers
         }
 
         // Home page using Index.cshtml view under Home folder
+        // GET: Home
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,6 +30,7 @@ namespace MVCWebApp.Controllers
         }
 
         // Privacy page using Privacy.cshtml view under Home folder
+        // GET: Home/Privacy
         [HttpGet]
         public IActionResult Privacy()
         {

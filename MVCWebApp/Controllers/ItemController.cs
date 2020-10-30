@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic.CompilerServices;
 using MVCWebApp.Data;
@@ -37,6 +38,8 @@ namespace MVCWebApp.Controllers
             _dbContext.Add(item);   // adding item to database
             _dbContext.SaveChanges();   // commiting changes
             // List<Item> items = _dbContext.Items.ToList<Item>();
+
+            List<Item> Items = _dbContext.Items.ToList<Item>();
 
             return View(item);
         }

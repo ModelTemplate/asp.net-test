@@ -23,6 +23,25 @@
     @Html.ActionLink("Edit", "Edit", new {})
     <a asp-action="Index">Back to List</a>
 </div>
-<div>
-    @Html.ActionLink("Add New Item Entry", "Create", new {})
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Item item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(x => item.ID)</td>
+            <td>@Html.DisplayFor(x => item.Name)</td>
+            <td>@Html.DisplayFor(x => item.Description)</td>
+            <td>@Html.DisplayFor(x => item.Cost)</td>
+            <td>@Html.ActionLink("Add New Item Entry", "Create", new {})</td>
+            <td>@Html.ActionLink("Details", "Details", new { id=Model.ID })</td>
+        </tr>
+        }
+    </tbody>
+</table>
