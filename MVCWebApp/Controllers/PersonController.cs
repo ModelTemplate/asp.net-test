@@ -9,7 +9,9 @@ namespace MVCWebApp.Controllers
 {
     public class PersonController : Controller
     {
-        public PersonController()
+        private ApplicationDbContext _dbContext;
+
+        public PersonController(ApplicationDbContext dbContext)
         {
         }
 

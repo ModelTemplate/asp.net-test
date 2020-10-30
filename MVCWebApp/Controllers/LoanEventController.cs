@@ -9,14 +9,18 @@ namespace MVCWebApp.Controllers
 {
     public class LoanEventController : Controller
     {
-        public LoanEventController()
+        private ApplicationDbContext _dbContext;
+
+        public LoanEventController(ApplicationDbContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, DateTime.Now.AddDays(5), new DateTime());
+            LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, 
+                DateTime.Now.AddDays(5), DateTime.Now.AddDays(5));
             return View(loan);
         }
 

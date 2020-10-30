@@ -5,15 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MVCWebApp.Data;
 using MVCWebApp.Models;
 
 namespace MVCWebApp.Controllers
 {
     public class ItemController : Controller
     {
+        private ApplicationDbContext _dbContext;
+
         // GET: ItemController
-        public ItemController()
+        public ItemController(ApplicationDbContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         // Items page using Items.cshtml view
@@ -21,6 +25,8 @@ namespace MVCWebApp.Controllers
         public IActionResult Index()
         {
             Item item = new Item(0, "Hammer", "My trusty hammer.", 9.99f, 0);
+            List<Item> items = _dbContext.Items.ToList<Item>();
+
             return View(item);
         }
 
