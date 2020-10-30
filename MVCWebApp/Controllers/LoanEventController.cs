@@ -20,8 +20,19 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            LoanEvent loan = new LoanEvent(0, 1, "John Smith", DateTime.Now, 
-                DateTime.Now.AddDays(5), DateTime.Now.AddDays(5));
+            LoanEvent loan = new LoanEvent()
+            {
+                ID = 0,
+                LoanerID = 1,
+                BorrowerName = "John Smith",
+                LoanDate = DateTime.Now,
+                DueDate = DateTime.Now.AddDays(5),
+                ReturnDate = DateTime.Now.AddDays(5)
+            };
+
+            _dbContext.Add(loan);
+            _dbContext.SaveChanges();
+
             return View(loan);
         }
 

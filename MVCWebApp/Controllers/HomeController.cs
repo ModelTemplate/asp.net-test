@@ -14,6 +14,7 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IOptions<AppSettings> _appSettings;
+
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {
             _logger = logger;

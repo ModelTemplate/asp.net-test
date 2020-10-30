@@ -20,7 +20,17 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            Person person = new Person(1, "Sam", "Fisher", "sam_fisher@gmail.com", "206-111-1111");
+            Person person = new Person()
+            {
+                ID = 1,
+                FirstName = "Sam",
+                LastName = "Fisher",
+                Email = "sam_fisher@gmail.com",
+                PhoneNum = "206-111-1111"
+            };
+            _dbContext.Add(person);
+            _dbContext.SaveChanges();
+
             return View(person);
         }
 
