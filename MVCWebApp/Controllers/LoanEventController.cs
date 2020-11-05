@@ -21,7 +21,7 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            LoanEvent loan = new LoanEvent()
+            /*LoanEvent loan = new LoanEvent()
             {
                 LoanerID = 1,
                 BorrowerName = "John Smith",
@@ -31,9 +31,13 @@ namespace MVCWebApp.Controllers
             };
 
             _dbContext.Add(loan);
-            _dbContext.SaveChanges();
+            _dbContext.SaveChanges();*/
 
-            return View(loan);
+            LoanEvent loan = new LoanEvent();
+            List<LoanEvent> loans = _dbContext.Loans.ToList<LoanEvent>();
+            loan.Loans = loans;
+
+            return View(loans);
         }
 
         // GET: LoanEvent/Edit

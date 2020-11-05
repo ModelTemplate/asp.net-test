@@ -21,7 +21,7 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            Person person = new Person()
+            /*Person person = new Person()
             {
                 FirstName = "Sam",
                 LastName = "Fisher",
@@ -30,9 +30,13 @@ namespace MVCWebApp.Controllers
             };
 
             _dbContext.Add(person);
-            _dbContext.SaveChanges();
+            _dbContext.SaveChanges();*/
 
-            return View(person);
+            Person person = new Person();
+            List<Person> persons = _dbContext.Persons.ToList<Person>();
+            person.Persons = persons;
+
+            return View(persons);
         }
 
         // GET: Person/Edit

@@ -27,13 +27,13 @@ namespace MVCWebApp.Controllers
         public IActionResult Index()
         {
             // primer for database
-            /*            Item item = new Item()
-                        {
-                            Name = "Hammer",
-                            Description = "My trusty hammer.",
-                            Cost = 9.99f,
-                            DepreciationRate = 0
-                        };*/
+            /*Item item = new Item()
+            {
+                Name = "Hammer",
+                Description = "My trusty hammer.",
+                Cost = 9.99f,
+                DepreciationRate = 0
+            };*/
 
             // _dbContext.Add(item);   // adding item to database
             // _dbContext.SaveChanges();   // commiting changes
