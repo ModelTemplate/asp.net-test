@@ -63,19 +63,14 @@ namespace MVCWebApp.Controllers
             return View();
         }
 
-        // TODO
         // POST: Item/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Item newItem)
         {
             try
             {
-                // convert form data into valid item model to be put into database
-                // schema
-                // collection.ToDictionary;
-                Item newItem = new Item();
-                _dbContext.Add<Item>(newItem);
+                _dbContext.Add(newItem);
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }

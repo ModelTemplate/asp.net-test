@@ -51,5 +51,22 @@ namespace MVCWebApp.Controllers
         {
             return View();
         }
+
+        // POST: Person/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Person newPerson)
+        {
+            try
+            {
+                _dbContext.Add(newPerson);
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

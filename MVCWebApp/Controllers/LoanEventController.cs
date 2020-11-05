@@ -53,5 +53,21 @@ namespace MVCWebApp.Controllers
         {
             return View();
         }
+
+        // POST: LoanEvent/Create
+        [HttpPost]
+        public ActionResult Create(LoanEvent newLoan)
+        {
+            try
+            {
+                _dbContext.Add(newLoan);
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
