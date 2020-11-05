@@ -1,0 +1,27 @@
+﻿@model MVCWebApp.Models.Item
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Depreciation Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.Name</td>
+            <td>@Model.Description</td>
+            <td>@Model.Cost</td>
+            <td>@Model.DepreciationRate</td>
+        </tr>
+    </tbody>
+    <tr>@Html.ActionLink("Back to list", "Index", new { })</tr>
+</table>

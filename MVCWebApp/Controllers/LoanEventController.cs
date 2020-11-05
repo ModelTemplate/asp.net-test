@@ -17,6 +17,7 @@ namespace MVCWebApp.Controllers
             _dbContext = dbContext;
         }
 
+        // GET: LoanEvent
         [HttpGet]
         public IActionResult Index()
         {
@@ -35,11 +36,14 @@ namespace MVCWebApp.Controllers
             return View(loan);
         }
 
+        // GET: LoanEvent/Edit
+        [HttpGet]
         public ActionResult Edit()
         {
             return View();
         }
 
+        // GET: LoanEvent/Create
         [HttpGet]
         public ActionResult Create()
         {

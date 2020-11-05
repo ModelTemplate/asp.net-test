@@ -17,6 +17,7 @@ namespace MVCWebApp.Controllers
             _dbContext = dbContext;
         }
 
+        // GET: Person
         [HttpGet]
         public IActionResult Index()
         {
@@ -34,11 +35,13 @@ namespace MVCWebApp.Controllers
             return View(person);
         }
 
+        // GET: Person/Edit
         public ActionResult Edit()
         {
             return View();
         }
 
+        // GET: Person/Create
         [HttpGet]
         public ActionResult Create()
         {

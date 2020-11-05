@@ -1,4 +1,4 @@
-@model MVCWebApp.Models.Item
+@model IEnumerable<MVCWebApp.Models.Item>
 
 @{
     ViewData["Title"] = "Items";
@@ -10,17 +10,9 @@
     <h1 class="display-4">Item</h1>
     <hr />
 </div>
+
 <div>
-    <dl>
-        <dt>Item ID: @Model.ID</dt>
-        <dt>Name: @Model.Name</dt>
-        <dt>Description: @Model.Description</dt>
-        <dt>Cost: @Model.Cost</dt>
-        <dt>Depreciation Rate: @Model.DepreciationRate</dt>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new {})
+    @Html.ActionLink("Edit", "Edit", new { })
     <a asp-action="Index">Back to List</a>
 </div>
 <table class="table">
@@ -33,15 +25,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Items) {
-        <tr>
-            <td>@Html.DisplayFor(item => item.ID)</td>
-            <td>@Html.DisplayFor(item => item.Name)</td>
-            <td>@Html.DisplayFor(item => item.Description)</td>
-            <td>@Html.DisplayFor(item => item.Cost)</td>
-            <td>@Html.ActionLink("Details", "Details", new { id=Model.ID })</td>
-        </tr>
+        @foreach (Item item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
         }
     </tbody>
-    <tr>@Html.ActionLink("Add New Item Entry", "Create", new {})</tr>
+    <tr>@Html.ActionLink("Add New Item Entry", "Create", new { })</tr>
 </table>

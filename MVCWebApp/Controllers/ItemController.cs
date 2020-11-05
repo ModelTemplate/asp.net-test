@@ -27,21 +27,25 @@ namespace MVCWebApp.Controllers
         public IActionResult Index()
         {
             // primer for database
-            Item item = new Item()
-            {
-                Name = "Hammer",
-                Description = "My trusty hammer.",
-                Cost = 9.99f,
-                DepreciationRate = 0
-            };
+            /*            Item item = new Item()
+                        {
+                            Name = "Hammer",
+                            Description = "My trusty hammer.",
+                            Cost = 9.99f,
+                            DepreciationRate = 0
+                        };*/
 
-            _dbContext.Add(item);   // adding item to database
-            _dbContext.SaveChanges();   // commiting changes
-            // List<Item> Items = _dbContext.Items.ToList<Item>();
+            // _dbContext.Add(item);   // adding item to database
+            // _dbContext.SaveChanges();   // commiting changes
+            // List<Item> items = _dbContext.Items.ToList<Item>();
 
-            item.Items = _dbContext.Items.ToList<Item>();
+            // getting all items from database
 
-            return View(item);
+            Item item = new Item();
+            List<Item> items = _dbContext.Items.ToList<Item>();
+            item.Items = items;
+
+            return View(items);
         }
 
         // GET: Item/Details/5
@@ -56,10 +60,10 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-
             return View();
         }
 
+        // TODO
         // POST: Item/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -67,6 +71,8 @@ namespace MVCWebApp.Controllers
         {
             try
             {
+                // convert form data into valid item model to be put into database
+                // schema
                 // collection.ToDictionary;
                 Item newItem = new Item();
                 _dbContext.Add<Item>(newItem);
@@ -89,13 +95,32 @@ namespace MVCWebApp.Controllers
             return View();
         }
 
-        // POST: ItemController/Delete/5
+        // DELETE: Item/Delete/5
         [HttpDelete]
         public ActionResult Delete(int id)
         {
             try
             {
                 _dbContext.Remove(_dbContext.Find<Item>(id));
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Delete));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // DELETE: Item/Delete/All
+        [HttpDelete]
+        public ActionResult Delete(string param)
+        {
+            try
+            {
+                foreach (Item item in _dbContext.Items)
+                {
+                    _dbContext.Remove(item);
+                }
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Delete));
             }
