@@ -22,7 +22,6 @@ namespace MVCWebApp.Controllers
         {
             Person person = new Person()
             {
-                ID = 1,
                 FirstName = "Sam",
                 LastName = "Fisher",
                 Email = "sam_fisher@gmail.com",

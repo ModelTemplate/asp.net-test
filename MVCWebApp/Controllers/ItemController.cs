@@ -29,7 +29,6 @@ namespace MVCWebApp.Controllers
             // primer for database
             Item item = new Item()
             {
-                ID = 0,
                 Name = "Hammer",
                 Description = "My trusty hammer.",
                 Cost = 9.99f,

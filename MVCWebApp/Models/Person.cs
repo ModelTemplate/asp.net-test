@@ -10,20 +10,16 @@ namespace MVCWebApp.Models
     /// </summary>
     public class Person
     {
-        public int ID { get; set; }
+        public int ID { get; set; }     // auto-incremented by SQL database
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNum { get; set; }
         public ICollection<Person> Persons { get; set; }
 
-        public Person(int id, string firstName, string lastName, string email, string phoneNum)
+        public Person(string firstName, string lastName, string email, string phoneNum)
         {
-            if (id < 0)
-            {
-                throw new ArgumentException("Person Id cannot be a negative value.");
-            }
-            else if (firstName == "" || lastName == "")
+            if (firstName == "" || lastName == "")
             {
                 throw new ArgumentException("Must input person first and last names.");
             } 
@@ -31,7 +27,6 @@ namespace MVCWebApp.Models
             {
                 throw new ArgumentException("Must input at least one form of contact information.");
             }
-            ID = id;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -40,7 +35,6 @@ namespace MVCWebApp.Models
 
         public Person()
         {
-            ID = -1;
             FirstName = "John";
             LastName = "Doe";
             Email = "example@email.com";

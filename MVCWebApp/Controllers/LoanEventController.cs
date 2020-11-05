@@ -22,7 +22,6 @@ namespace MVCWebApp.Controllers
         {
             LoanEvent loan = new LoanEvent()
             {
-                ID = 0,
                 LoanerID = 1,
                 BorrowerName = "John Smith",
                 LoanDate = DateTime.Now,
