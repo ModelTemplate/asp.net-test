@@ -90,15 +90,16 @@ namespace MVCWebApp.Controllers
             return View();
         }
 
-        // DELETE: Item/Delete/5
-        [HttpDelete]
-        public ActionResult Delete(int id)
+        // TODO
+        // POST: Item/Edit/5
+        [HttpPost]
+        public ActionResult Edit(Item updatedItem)
         {
             try
             {
-                _dbContext.Remove(_dbContext.Find<Item>(id));
+                _dbContext.Update(updatedItem);
                 _dbContext.SaveChanges();
-                return RedirectToAction(nameof(Delete));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -106,8 +107,27 @@ namespace MVCWebApp.Controllers
             }
         }
 
-        // DELETE: Item/Delete/All
-        [HttpDelete]
+        // GET: Item/Delete/5
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                // below executes two SQL statements; one to retrieve item
+                // and another to actually delete it
+                // _dbContext.Remove(_dbContext.Find<Item>(id));
+                _dbContext.Remove(new Item { ID = id });    // executes one SQL statement
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Item/Delete/All
+        [HttpGet]
         public ActionResult Delete(string param)
         {
             try
@@ -117,7 +137,7 @@ namespace MVCWebApp.Controllers
                     _dbContext.Remove(item);
                 }
                 _dbContext.SaveChanges();
-                return RedirectToAction(nameof(Delete));
+                return RedirectToAction(nameof(Index));
             }
             catch
             {

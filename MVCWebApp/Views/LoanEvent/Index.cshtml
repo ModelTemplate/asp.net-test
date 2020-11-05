@@ -17,24 +17,22 @@
             <th>Loaner ID</th>
             <th>Loan Date</th>
             <th>Due Date</th>
-            <th>Return Date</th>
         </tr>
     </thead>
     <tbody>
         @foreach (LoanEvent loan in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(modelLoan => loan.ID)</td>
-            <td>@Html.DisplayFor(modelLoan => loan.LoanerID)</td>
-            <td>@Html.DisplayFor(modelLoan => loan.LoanDate)</td>
-            <td>@Html.DisplayFor(modelLoan => loan.DueDate)</td>
-            <td>@Html.DisplayFor(modelLoan => loan.ReturnDate)</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = loan.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = loan.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = loan.ID })
-            </td>
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelLoan => loan.ID)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.LoanerID)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.LoanDate)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.DueDate)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = loan.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = loan.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = loan.ID })
+                </td>
+            </tr>
         }
     </tbody>
     <tr>@Html.ActionLink("Add New Loan Entry", "Create", new { })</tr>

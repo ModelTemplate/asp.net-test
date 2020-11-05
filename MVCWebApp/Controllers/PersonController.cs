@@ -39,6 +39,14 @@ namespace MVCWebApp.Controllers
             return View(persons);
         }
 
+        // GET: Person/Details/5
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            Person person = _dbContext.Find<Person>(id);
+            return View(person);
+        }
+
         // GET: Person/Edit
         public ActionResult Edit()
         {
@@ -60,6 +68,22 @@ namespace MVCWebApp.Controllers
             try
             {
                 _dbContext.Add(newPerson);
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Person/Delete/5
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                _dbContext.Remove(new Person { ID = id });
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }

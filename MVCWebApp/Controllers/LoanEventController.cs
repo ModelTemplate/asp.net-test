@@ -40,6 +40,14 @@ namespace MVCWebApp.Controllers
             return View(loans);
         }
 
+        // GET: LoanEvent/Details/5
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            LoanEvent loan = _dbContext.Find<LoanEvent>(id);
+            return View(loan);
+        }
+
         // GET: LoanEvent/Edit
         [HttpGet]
         public ActionResult Edit()
@@ -61,6 +69,22 @@ namespace MVCWebApp.Controllers
             try
             {
                 _dbContext.Add(newLoan);
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: LoanEvent/Delete/5
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                _dbContext.Remove(new LoanEvent { ID = id });
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }

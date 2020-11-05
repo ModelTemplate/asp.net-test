@@ -1,0 +1,33 @@
+﻿@model MVCWebApp.Models.Item
+
+@{ 
+    Layout = "_Layout";
+}
+
+<h1>New Item Entry</h1>
+
+<fieldset>
+    @using (Html.BeginForm("Edit", "Item", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Description)
+            @Html.TextAreaFor(x => x.Description)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Cost)
+            @Html.EditorFor(x => x.Cost)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.DepreciationRate)
+            @Html.EditorFor(x => x.DepreciationRate)
+        </p>
+
+        <p>
+            <button type="submit">Submit Changes</button>
+        </p>
+    }
+</fieldset>

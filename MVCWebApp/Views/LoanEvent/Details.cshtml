@@ -1,0 +1,29 @@
+﻿@model MVCWebApp.Models.LoanEvent
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loan ID</th>
+            <th>Loaner ID</th>
+            <th>Borrower Name</th>
+            <th>Loan Date</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.LoanerID</td>
+            <td>@Model.BorrowerName</td>
+            <td>@Model.LoanDate</td>
+            <td>@Model.DueDate</td>
+            <td>@Model.ReturnDate</td>
+        </tr>
+    </tbody>
+    <tr>@Html.ActionLink("Back to list", "Index", new { })</tr>
+</table>
