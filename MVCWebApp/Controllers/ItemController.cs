@@ -67,6 +67,10 @@ namespace MVCWebApp.Controllers
         {
             try
             {
+                // collection.ToDictionary;
+                Item newItem = new Item();
+                _dbContext.Add<Item>(newItem);
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -79,17 +83,26 @@ namespace MVCWebApp.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            _dbContext.Find<Item>(id);
-            // _dbContext.Update<Item>(id);
-            _dbContext.SaveChanges();
+            /*Item item = _dbContext.Find<Item>(id);
+            _dbContext.Update<Item>(id);
+            _dbContext.SaveChanges();*/
             return View();
         }
 
-        // GET: ItemController/Delete/5
-        [HttpGet]
-        public ActionResult Delete()
+        // POST: ItemController/Delete/5
+        [HttpDelete]
+        public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                _dbContext.Remove(_dbContext.Find<Item>(id));
+                _dbContext.SaveChanges();
+                return RedirectToAction(nameof(Delete));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
