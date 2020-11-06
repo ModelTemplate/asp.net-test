@@ -39,7 +39,7 @@ namespace MVCWebApp
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             // https://www.connectionstrings.com/sql-server/
-            // var connection = "Server=localhost;Database=myDataBase;User Id=myUsername;Password=myPassword;";
+            // var connection = "Server=(localdb)\\mssqllocaldb;Database=aspnet-MVCWebAppTest-7BCF2DEE-3335-4020-B9D4-2319B239D3E4;Trusted_Connection=True;MultipleActiveResultSets=true";
             // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
         }
 
