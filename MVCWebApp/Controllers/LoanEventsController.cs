@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,7 @@ namespace MVCWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutLoanEvent(int id, LoanEvent loanEvent)
         {
             if (id != loanEvent.ID)
@@ -78,6 +80,7 @@ namespace MVCWebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<LoanEvent>> PostLoanEvent(LoanEvent loanEvent)
         {
             _context.Loans.Add(loanEvent);
@@ -88,6 +91,7 @@ namespace MVCWebApp.Controllers
 
         // DELETE: api/LoanEvents/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult<LoanEvent>> DeleteLoanEvent(int id)
         {
             var loanEvent = await _context.Loans.FindAsync(id);

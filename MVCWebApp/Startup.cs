@@ -34,7 +34,8 @@ namespace MVCWebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-
+            services.AddCors();     // cross-origin resource sharing for APIs
+            
             // reading setting values from AppSettings.cs
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
@@ -64,6 +65,14 @@ namespace MVCWebApp
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            // allowing unrestricted API access
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            });
 
             app.UseEndpoints(endpoints =>
             {
