@@ -41,8 +41,12 @@ namespace MVCWebApp.Controllers
 
         // GET: Person/Details/5
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             Person person = _dbContext.Find<Person>(id);
             return View(person);
         }

@@ -42,8 +42,12 @@ namespace MVCWebApp.Controllers
 
         // GET: LoanEvent/Details/5
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             LoanEvent loan = _dbContext.Find<LoanEvent>(id);
             return View(loan);
         }

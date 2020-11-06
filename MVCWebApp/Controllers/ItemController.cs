@@ -50,9 +50,17 @@ namespace MVCWebApp.Controllers
 
         // GET: Item/Details/5
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             Item item = _dbContext.Find<Item>(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
             return View(item);
         }
 
@@ -66,34 +74,37 @@ namespace MVCWebApp.Controllers
         // POST: Item/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Item newItem)
+        public ActionResult Create([Bind("Name, Description, Cost, DepreciationRate")] Item newItem)
         {
-            try
+            // binding specific properties and including validation of data
+            if (ModelState.IsValid)
             {
                 _dbContext.Add(newItem);
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(newItem);
         }
 
+        // TODO
         // GET: Item/Edit/5
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            /*Item item = _dbContext.Find<Item>(id);
-            _dbContext.Update<Item>(id);
-            _dbContext.SaveChanges();*/
+            Item item = _dbContext.Find<Item>(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            _dbContext.Update<Item>(item);
+            _dbContext.SaveChanges();
             return View();
         }
 
         // TODO
         // POST: Item/Edit/5
         [HttpPost]
-        public ActionResult Edit(Item updatedItem)
+        public ActionResult Edit([Bind("Name, Description, Cost, DepreciationRate")] Item updatedItem)
         {
             try
             {
