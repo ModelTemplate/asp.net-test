@@ -14,6 +14,7 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IOptions<AppSettings> _appSettings;
+
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {
             _logger = logger;
@@ -21,6 +22,7 @@ namespace MVCWebApp.Controllers
         }
 
         // Home page using Index.cshtml view under Home folder
+        // GET: Home
         [HttpGet]
         public IActionResult Index()
         {
@@ -28,6 +30,7 @@ namespace MVCWebApp.Controllers
         }
 
         // Privacy page using Privacy.cshtml view under Home folder
+        // GET: Home/Privacy
         [HttpGet]
         public IActionResult Privacy()
         {

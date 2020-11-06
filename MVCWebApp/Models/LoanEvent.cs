@@ -10,20 +10,22 @@ namespace MVCWebApp.Models
     /// </summary>
     public class LoanEvent
     {
-        public int ID { get; set; }
+        public int ID { get; set; }     // auto-incremented by SQL database
         public int LoanerID { get; set; }
         public string BorrowerName{ get; set; }
         public DateTime LoanDate { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime? ReturnDate { get; set; }
+        public ICollection<LoanEvent> Loans { get; set; }
 
-        public LoanEvent(int id, int loanerId, string borrowerName, DateTime loanDate, 
+        public LoanEvent(int loanerId, string borrowerName, DateTime loanDate, 
             DateTime dueDate, DateTime returnDate)
         {
-            if (id < 0 || loanerId < 0)
+            if (loanerId < 0)
             {
-                throw new ArgumentException("Id numbers cannot be a negative value.");
-            } else if (borrowerName == "")
+                throw new ArgumentException("Loaner Id cannot be a negative value.");
+            } 
+            else if (borrowerName == "")
             {
                 throw new ArgumentException("Must put in borrower name.");
             }
@@ -39,7 +41,6 @@ namespace MVCWebApp.Models
             {
                 throw new ArgumentException("Loan must be for at least three days.");
             }
-            ID = id;
             LoanerID = loanerId;
             BorrowerName = borrowerName;
             LoanDate = loanDate;
@@ -49,14 +50,11 @@ namespace MVCWebApp.Models
 
         public LoanEvent()
         {
-            ID = -1;
             LoanerID = -1;
             BorrowerName = "John Doe";
             LoanDate = new DateTime();
             DueDate = new DateTime();
             ReturnDate = null;
         }
-
-        public ICollection<LoanEvent> Loans { get; set; }
     }
 }

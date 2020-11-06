@@ -7,7 +7,7 @@
 <h1>New Item Entry</h1>
 
 <fieldset>
-    @using (Html.BeginForm("Create", "Item", FormMethod.Post))
+    @using (Html.BeginForm("Edit", "Item", FormMethod.Post))
     {
         <p>
             @Html.LabelFor(x => x.Name)
@@ -27,7 +27,7 @@
         </p>
 
         <p>
-            <button type="submit">Add New Item</button>
+            <button type="submit">Submit Changes</button>
         </p>
     }
 </fieldset>

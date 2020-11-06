@@ -1,4 +1,4 @@
-@model MVCWebApp.Models.LoanEvent
+@model IEnumerable<MVCWebApp.Models.LoanEvent>
 
 @{
     ViewData["Title"] = "Loans";
@@ -10,19 +10,30 @@
     <h1 class="display-4">Loan</h1>
     <hr />
 </div>
-<div>
-    <dl>
-        <dt>Loaner ID: @Model.LoanerID</dt>
-        <dt>Start date: @Model.LoanDate</dt>
-        <dt>End date: @Model.DueDate</dt>
-        <dt>Borrower name: @Model.BorrowerName</dt>
-        <dt>Return date: @Model.ReturnDate</dt>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new {})
-    <a asp-action="Index">Back to List</a>
-</div>
-<div>
-    @Html.ActionLink("Add New Loan Entry", "Create", new { })
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loan ID</th>
+            <th>Loaner ID</th>
+            <th>Loan Date</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (LoanEvent loan in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelLoan => loan.ID)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.LoanerID)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.LoanDate)</td>
+                <td>@Html.DisplayFor(modelLoan => loan.DueDate)</td>
+                <td>
+                    <!--@Html.ActionLink("Edit", "Edit", new { id = loan.ID }) |-->
+                    @Html.ActionLink("Details", "Details", new { id = loan.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = loan.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tr>@Html.ActionLink("Add New Loan Entry", "Create", new { })</tr>
+</table>

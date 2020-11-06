@@ -1,0 +1,25 @@
+﻿@model MVCWebApp.Models.Person
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.FirstName @Model.LastName</td>
+            <td>@Model.Email</td>
+            <td>@Model.PhoneNum</td>
+        </tr>
+    </tbody>
+    <tr>@Html.ActionLink("Back to list", "Index", new { })</tr>
+</table>

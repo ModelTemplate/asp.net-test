@@ -1,4 +1,4 @@
-@model MVCWebApp.Models.Person
+@model IEnumerable<MVCWebApp.Models.Person>
 
 @{
     ViewData["Title"] = "Loaners";
@@ -10,18 +10,32 @@
     <h1 class="display-4">Loaner</h1>
     <hr />
 </div>
-<div>
-    <dl>
-        <dt>Loaner ID: @Model.ID</dt>
-        <dt>Full name: @Model.FirstName @Model.LastName</dt>
-        <dt>Email address: @Model.Email</dt>
-        <dt>Phone number: @Model.PhoneNum</dt>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new {})
-    <a asp-action="Index">Back to List</a>
-</div>
-<div>
-    @Html.ActionLink("Add New Person Entry", "Create", new { })
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Loan ID</th>
+            <th>Loaner ID</th>
+            <th>Loan Date</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person person in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelPerson => person.ID)</td>
+                <td>@Html.DisplayFor(modelPerson => person.FirstName)</td>
+                <td>@Html.DisplayFor(modelPerson => person.LastName)</td>
+                <td>@Html.DisplayFor(modelPerson => person.Email)</td>
+                <td>@Html.DisplayFor(modelPerson => person.PhoneNum)</td>
+                <td>
+                    <!--@Html.ActionLink("Edit", "Edit", new { id = person.ID }) |-->
+                    @Html.ActionLink("Details", "Details", new { id = person.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = person.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tr>@Html.ActionLink("Add New Person Entry", "Create", new { })</tr>
+</table>
