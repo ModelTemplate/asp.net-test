@@ -13,7 +13,7 @@ namespace MVCWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IOptions<AppSettings> _appSettings;
+        private readonly IOptions<AppSettings> _appSettings;
 
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
         {

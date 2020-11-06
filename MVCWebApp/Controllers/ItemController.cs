@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
@@ -72,9 +73,13 @@ namespace MVCWebApp.Controllers
         }
 
         // POST: Item/Create
+        // TO protect from overposting attacks, please enable this specific properties you
+        // want to bind to, for more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Name, Description, Cost, DepreciationRate")] Item newItem)
+        [Authorize]
+        public ActionResult Create(
+            [Bind("Name, Description, Cost, DepreciationRate")] Item newItem)
         {
             // binding specific properties and including validation of data
             if (ModelState.IsValid)
@@ -104,7 +109,8 @@ namespace MVCWebApp.Controllers
         // TODO
         // POST: Item/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind("Name, Description, Cost, DepreciationRate")] Item updatedItem)
+        public ActionResult Edit(
+            [Bind("Name, Description, Cost, DepreciationRate")] Item updatedItem)
         {
             try
             {

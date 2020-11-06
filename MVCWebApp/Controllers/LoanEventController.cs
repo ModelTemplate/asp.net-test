@@ -59,6 +59,13 @@ namespace MVCWebApp.Controllers
             return View();
         }
 
+        // POST: LoanEvent/Edit
+        [HttpPost]
+        public ActionResult Edit(LoanEvent loan)
+        {
+            return View();
+        }
+
         // GET: LoanEvent/Create
         [HttpGet]
         public ActionResult Create()
@@ -68,7 +75,8 @@ namespace MVCWebApp.Controllers
 
         // POST: LoanEvent/Create
         [HttpPost]
-        public ActionResult Create(LoanEvent newLoan)
+        public ActionResult Create(
+            [Bind("LoanerID, BorrowerName LoanDate, DueDate, ReturnDate")] LoanEvent newLoan)
         {
             try
             {

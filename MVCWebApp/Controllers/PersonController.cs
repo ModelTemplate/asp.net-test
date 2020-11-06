@@ -52,7 +52,15 @@ namespace MVCWebApp.Controllers
         }
 
         // GET: Person/Edit
+        [HttpGet]
         public ActionResult Edit()
+        {
+            return View();
+        }
+
+        // POST: Person/Edit
+        [HttpPost]
+        public ActionResult Edit(Person person)
         {
             return View();
         }
@@ -67,7 +75,8 @@ namespace MVCWebApp.Controllers
         // POST: Person/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Person newPerson)
+        public ActionResult Create(
+            [Bind("FirstName, LastName, Email, PhoneNum")] Person newPerson)
         {
             try
             {
