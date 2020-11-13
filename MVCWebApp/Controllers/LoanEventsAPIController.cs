@@ -13,11 +13,11 @@ namespace MVCWebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoanEventsController : ControllerBase
+    public class LoanEventsAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public LoanEventsController(ApplicationDbContext context)
+        public LoanEventsAPIController(ApplicationDbContext context)
         {
             _context = context;
         }

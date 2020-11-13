@@ -32,11 +32,44 @@ namespace MVCWebApp.Controllers
             string loans = await client.GetStringAsync("https://localhost:5001/api/loanevents");
 
             // build request for track ID
-            client.SetBearerToken(App.CurrentUser.AccessToken);
-            string url = App.baseUrl + "api/ping";
-            Debug.WriteLine("Pinging the FMX service.");
+            // client.SetBearerToken(App.CurrentUser.AccessToken);
+            string url = "https://localhost:5001/api/ping";
+            Debug.WriteLine("Pinging the LoanEvents API.");
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, new Uri(url));
-            
+            request.Headers.UserAgent.Add(new System.Net.Http.Headers.ProductInfoHeaderValue("Loan Tracker"));
+
+            try
+            {
+                await client.SendAsync(request)
+                    .ContinueWith(taskWithMsg =>
+                    {
+                        HttpResponseMessage response = taskWithMsg.Result;
+
+                        Debug.WriteLine(response);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            Debug.WriteLine("Service unreachable: " + response.ToString());
+                            return false;
+                        }
+
+                        Task<string> reqTask = response.Content.ReadAsStringAsync();
+
+                        string pingResponse = reqTask.Result;
+
+                        if (string.IsNullOrWhiteSpace(pingResponse))
+                        {
+                            Debug.WriteLine("Unexpected response on service availability: " + response.ToString());
+                            return false;
+                        }
+                        return pingResponse.Equals("Active");
+                    });
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
             return View();
         }
 
