@@ -23,7 +23,7 @@ namespace MVCWebApp.Controllers
             _dbContext = dbContext;
         }
 
-        // GET: Item
+        // GET: Item/Index
         [HttpGet]
         public IActionResult Index()
         {

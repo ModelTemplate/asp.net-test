@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCWebApp.Models;
 using Microsoft.Extensions.Options;
+using System.Net.Http;
 
 namespace MVCWebApp.Controllers
 {
@@ -22,10 +23,20 @@ namespace MVCWebApp.Controllers
         }
 
         // Home page using Index.cshtml view under Home folder
-        // GET: Home
+        // GET: Home/Index
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            // using an internal API
+            HttpClient client = new HttpClient();
+            string loans = await client.GetStringAsync("https://localhost:5001/api/loanevents");
+
+            // build request for track ID
+            client.SetBearerToken(App.CurrentUser.AccessToken);
+            string url = App.baseUrl + "api/ping";
+            Debug.WriteLine("Pinging the FMX service.");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, new Uri(url));
+            
             return View();
         }
 

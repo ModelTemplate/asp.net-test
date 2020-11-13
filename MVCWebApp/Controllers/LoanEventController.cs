@@ -17,7 +17,7 @@ namespace MVCWebApp.Controllers
             _dbContext = dbContext;
         }
 
-        // GET: LoanEvent
+        // GET: LoanEvent/Index
         [HttpGet]
         public IActionResult Index()
         {

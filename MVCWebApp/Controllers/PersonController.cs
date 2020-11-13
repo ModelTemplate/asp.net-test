@@ -17,7 +17,7 @@ namespace MVCWebApp.Controllers
             _dbContext = dbContext;
         }
 
-        // GET: Person
+        // GET: Person/Index
         [HttpGet]
         public IActionResult Index()
         {
