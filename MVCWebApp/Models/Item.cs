@@ -10,6 +10,7 @@ namespace MVCWebApp.Models
     {
         public int ID { get; set; }     // auto-incremented by SQL database
         public string Name { get; set; }
+        public ApplicationUser Owner { get; set; }
         public string Description { get; set; }
         public float Cost { get; set; }
         public float DepreciationRate { get; set; }
@@ -34,6 +35,7 @@ namespace MVCWebApp.Models
         public Item()
         {
             Name = null;
+            Owner = null;
             Description = null;
             Cost = -1;
             DepreciationRate = -1;

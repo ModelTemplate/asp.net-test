@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic.CompilerServices;
 using MVCWebApp.Data;
@@ -16,11 +17,13 @@ namespace MVCWebApp.Controllers
     public class ItemController : Controller
     {
         private ApplicationDbContext _dbContext;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         // GET: Item
-        public ItemController(ApplicationDbContext dbContext)
+        public ItemController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
+            _userManager = userManager;
         }
 
         // GET: Item/Index
@@ -78,12 +81,13 @@ namespace MVCWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create(
+        public async Task<IActionResult> Create(
             [Bind("Name, Description, Cost, DepreciationRate")] Item newItem)
         {
             // binding specific properties and including validation of data
             if (ModelState.IsValid)
             {
+                newItem.Owner = await _userManager.GetUserAsync(User);
                 _dbContext.Add(newItem);
                 _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));

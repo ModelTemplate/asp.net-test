@@ -35,7 +35,10 @@ namespace MVCWebApp
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddCors();     // cross-origin resource sharing for APIs
-            
+
+            // https://identityserver.io/
+            // services.AddAuthentication();
+
             // reading setting values from AppSettings.cs
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 

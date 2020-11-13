@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVCWebApp.Data;
 using MVCWebApp.Models;
+using Newtonsoft.Json;
 
 namespace MVCWebApp.Controllers
 {
@@ -24,8 +25,17 @@ namespace MVCWebApp.Controllers
 
         // GET: api/LoanEvents
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<LoanEvent>>> GetLoans()
         {
+            /*List<LoanEvent> loans = _context.Loans.Include("BorrowerName").Include("LoanDate").ToList();
+            List<string> jsonLoans = new List<string>();
+
+            foreach(LoanEvent loan in loans)
+            {
+                jsonLoans.Add(JsonConvert.SerializeObject(loan));
+            }*/
+            
             return await _context.Loans.ToListAsync();
         }
 

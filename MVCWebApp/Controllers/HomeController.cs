@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using MVCWebApp.Models;
 using Microsoft.Extensions.Options;
 using System.Net.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace MVCWebApp.Controllers
 {
@@ -15,11 +16,14 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings)
+        public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings, 
+            UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             _appSettings = appSettings;     // unused for now
+            _userManager = userManager;
         }
 
         // Home page using Index.cshtml view under Home folder
