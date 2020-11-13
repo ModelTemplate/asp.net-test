@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 
@@ -10,7 +11,7 @@ namespace MVCWebApp.Models
     {
         public int ID { get; set; }     // auto-incremented by SQL database
         public string Name { get; set; }
-        public ApplicationUser Owner { get; set; }
+        public IdentityUser Owner { get; set; }
         public string Description { get; set; }
         public float Cost { get; set; }
         public float DepreciationRate { get; set; }

@@ -17,10 +17,10 @@ namespace MVCWebApp.Controllers
     public class ItemController : Controller
     {
         private ApplicationDbContext _dbContext;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         // GET: Item
-        public ItemController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+        public ItemController(ApplicationDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             _dbContext = dbContext;
             _userManager = userManager;

@@ -16,10 +16,10 @@ namespace MVCWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IOptions<AppSettings> _appSettings;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public HomeController(ILogger<HomeController> logger, IOptions<AppSettings> appSettings, 
-            UserManager<ApplicationUser> userManager)
+            UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _appSettings = appSettings;     // unused for now
